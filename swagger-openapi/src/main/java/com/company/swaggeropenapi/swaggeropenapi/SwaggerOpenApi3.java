@@ -10,9 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
+@RequestMapping("/ee")
 public class SwaggerOpenApi3 {
 	
 	private Logger logger = LoggerFactory.getLogger(SwaggerOpenApi3.class);
@@ -24,6 +28,7 @@ public class SwaggerOpenApi3 {
 			);
 	
 	
+	@Operation(method = "Get", description = "This api is for fetchign emaployees", summary = "This method will return all the employees" )
 	@GetMapping("/employees")
 	public List<Employee> fetchAllEmployee() {
 		return employee;
